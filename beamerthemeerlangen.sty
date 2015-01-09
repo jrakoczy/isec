@@ -1,0 +1,147 @@
+\ProvidesPackage{beamerthemeerlangen}[2012/09/01]
+\RequirePackage{tikz}
+\RequirePackage{calc}
+\RequirePackage{appendixnumberbeamer}
+
+
+\RequirePackage[scriptsize,it]{caption}
+\captionsetup{labelformat=empty,labelsep=none}
+
+\mode<presentation>
+
+%%% variables and options
+
+\def\numbering{}
+
+\newlength{\menuwidth}
+\newlength{\restofmenuwidth}
+
+\setlength{\menuwidth}{.3\paperwidth}
+
+
+
+\ProcessOptionsBeamer
+
+\setlength{\restofmenuwidth}{0.95\paperwidth}
+\addtolength\restofmenuwidth{-\menuwidth}
+
+\useinnertheme{circles}
+\useoutertheme{miniframes}
+\usecolortheme{erlangen}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+\setbeamercolor{block body}{bg=}
+
+% TITLE PAGE
+\defbeamertemplate*{title page}{titlepage}
+{
+  \thispagestyle{empty}
+
+  \begin{picture}(0,0)(-120,50)
+    \includegraphics[width=0.2\paperwidth]{images/agh.jpg}
+  \end{picture}
+
+  \begin{picture}(0,0)(0,0)
+    \put(10,-100){
+        \begin{minipage}{0.9\linewidth}
+        \centering{\LARGE\color{erlangenblue} \inserttitle\par}
+        \end{minipage}
+    }
+  \end{picture}
+  \begin{picture}(0,0)(0,0)
+    \put(10,-135){
+        \begin{minipage}{0.90\linewidth}
+        \centering{\large\color{erlangenblue} \insertauthor\par}
+        \end{minipage}
+    }
+  \end{picture}
+  \begin{picture}(0,0)(0,0)
+    \put(10,-60){
+        \begin{minipage}{0.90\linewidth}
+        \centering{\color{erlangenblack} \insertinstitute\par}
+        \end{minipage}
+    }
+  \end{picture}
+
+}
+
+% HEADER
+\defbeamertemplate*{headline}{erlangen}%
+{
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.3em]{headerline title}
+    \begin{minipage}{\restofmenuwidth}
+        {\tiny{\bfseries AGH}  EAIIB}%
+    \end{minipage}
+    \hspace{0px}
+    \begin{minipage}{\menuwidth}
+      \begin{flushright}
+	    \vspace{4px}
+        \insertsectionnavigationhorizontal{\menuwidth}{}{}
+      \end{flushright}
+    \end{minipage}
+    
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=\paperwidth,sep=1px]{headerline border}
+    \vspace{1px}
+  \end{beamercolorbox}
+}
+
+% FOOTER
+\defbeamertemplate*{footline}{erlangen}
+{
+%\leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.2em]{footerline}
+    \insertshorttitle\;--\;\insertshortauthor \hfill %
+    \ifx\numbering{false}\relax\else
+        \insertframenumber/\inserttotalframenumber %
+    \fi
+  \end{beamercolorbox}  
+}
+
+
+% SECTION LIST
+\usesectionheadtemplate
+{ %active
+  \color{erlangenlyellow} \insertsectionhead
+}
+{ %other
+  \color{erlangenlightgrey} \insertsectionhead
+}
+
+% BACKGROUND IMAGE
+\setbeamertemplate{background}{
+  \ifnum\insertframenumber=1\else
+  \parbox[r][\paperheight]{\paperwidth}{
+    \vfill\hfill
+  }
+  \fi
+}
+
+
+\defbeamertemplate*{frametitle}{}
+{
+  \begin{beamercolorbox}[sep=0ex,ht= 2.5ex, wd=\paperwidth]{}
+    \hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill %
+  \end{beamercolorbox}%
+}
+
+%
+\newcommand{\sectionframe}[1]
+{
+    \begin{beamercolorbox}[wd=\textwidth]{footerline}
+        \begin{minipage}{\textwidth}
+          \vspace{1em}
+          \centering\Large{\color{white}{#1}}
+          \vspace{1em}
+        \end{minipage}%
+    \end{beamercolorbox}%
+    \nointerlineskip
+    \begin{beamercolorbox}[sep=0ex,ht=2pt, wd=\textwidth]{headerline border}
+    \end{beamercolorbox}%
+}
+%\mode<handout>
+
+\mode
+<all>
