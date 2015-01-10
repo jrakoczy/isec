@@ -121,7 +121,23 @@
 	\end{itemize} 
 \end{frame}
 
-\begin{frame}{HTTPS, SFTP, FTPS}
-	
+\begin{frame}{Warstwy protokołów}
+	\begin{table}
+	\centering
+		\begin{tabular}{| l | c | r |}
+			\hline
+			\parbox[t]{1in}{
+			Protokół
+			\par kryptograficzny} & \parbox[t]{1in}{Protokół 
+			\par bez szyfrowania} & \parbox[t]{1in}{Warstwa \par wynikowa} \\		
+			\hhline{|=|=|=|} 
+			\multirow{2}{*}{TLS} & HTTP & HTTPS \\ 
+			& FTP & FTPS \\                 
+			\hline
+			\multirow{2}{*}{SSH} & FTP & SFTP \\ 
+			& RCP & SCP \\                 
+			\hline    
+		\end{tabular}
+	\end{table}	
 \end{frame}
 
