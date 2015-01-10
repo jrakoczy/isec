@@ -71,14 +71,28 @@
 		\end{enumerate}
 \end{frame}
 
-\begin{frame}{SSH --- Secure Shell}
+\begin{frame}{SSH}
+	\begin{alertblock}{Secure Shell}
+		Protokół wykorzystujący kryptografię asymetryczną do bezpiecznego zdalnego dostęp do komputera. 
+	\end{alertblock}
 	
-	To-do: pty-req, exec, tcpip-forward, x11-forward
+	Połączenie jest realizowane w architekturze klient-serwer. Uwierzytelnienie może zostać przeprowadzone w dwóch wariantach:
+	\begin{enumerate}
+		\item z automatycznyn generowaniem par kluczy oraz wykorzystaniem hasła;
+		\item z ręcznym generowaniem kluczy.
+	\end{enumerate}
 	
-	To-do: mogę skonfigurować dowolną komendę i olać to, co user sobie życzy. To pozwala na zbudowanie dowolnie złożonego i szatańsko bezpiecznego systemu w kilku linijkach skryptów szellowych. Tak działa np. gitolite. Albo deploy US.
-	
-	Por. \href{https://medium.com/@shazow/ssh-how-does-it-even-9e43586e4ffc}{Why aren’t we using SSH for everything?}
-	
+\end{frame}
+
+\begin{frame}{SSH}
+	Protokół SSH charakteryzuje się szerokim spektrum zastosowań:
+	\begin{itemize}
+		\item zdalne wykonywanie komend;
+		\item tunelowanie;
+		\item przekierowywanie portów TCP;
+		\item przekazywanie sesji graficznej X11 (system okien);
+		\item przesył plików.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{SSL}
@@ -90,12 +104,6 @@
 \end{frame}
 
 \begin{frame}{HTTPS, SFTP, FTPS}
-	
-	Kod realizujący te protokoły po obu stronach (klient i serwer) jest dokładnie taki sam, jak dla ich nieszyfrowanych wersji.
-	
-	Różnica leży w tworzeniu połączenia. Zamiast tworzyć socket systemu operacyjnego, tworzymy socket SSL/TLS, który obsługuje się później dokładnie tak samo jak systemowy.
-	
-	Socket SSL/TLS tworzymy powołując się na funkcjonalności biblioteki OpenSSL lub jej zamiennika, podając przy tym certyfikaty, klucze prywatne itd.
 	
 \end{frame}
 
