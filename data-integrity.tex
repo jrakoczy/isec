@@ -12,6 +12,26 @@
 
 \begin{frame}{Kryptograficzne funkcje haszujące}
 	
+	Kryptograficzna funkcja haszująca dla danych bajtów wejściowych zwraca stosunkowo dużą liczbę, typowo 128--512 bitów.
+	
+	Musi mieć tę własność, że najdrobniejsza zmiana danych wejściowych --- np. flipnięcie 1 bitu wśród 100 GiB --- całkowicie zmienia wyjście tej funkcji.
+	
+	Równie ważna własność --- dla danej wartości funkcji jest niesłychanie trudno spreparować generujące ją wejście.
+	
+	Teraz: jeśli odbiorca i nadawca porównają kryptograficzny skrót ze swych kopii danych, i jeśli skróty te będą takie same, z dość dużym prawdopodobieństwem dane są identyczne.
+	
+\end{frame}
+
+\begin{frame}{Prawdopodobieństwo kolizji dla 128-bitowej funkcji}
+	
+	W poprzednim slajdzie mówimy o dużym prawdopodobieństwie.
+	
+	Prawdopodobieństwo kolizji dla dwóch hashy przy 128-bitowej zwracanej liczbie to $\frac{1}{2^{128}}=\frac{1}{340282366920938463463374607431768211456}$.
+	
+	Jeśli jednak weźmiemy pod uwagę paradoks urodzin, możemy uzyskać prawdopodobieństwo kolizji $\frac{1}{2}$ wśród $2^{64}$ takich haszy.
+	
+	... czyli np. haszując 6 miliardów plików na sekundę przez następne 100 lat, któreś dwa będą kolidować z prawdopodobieństwem $\frac{1}{2}$. :-)
+	
 \end{frame}
 
 \begin{frame}{MD5}
