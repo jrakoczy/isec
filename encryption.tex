@@ -51,7 +51,7 @@
 \subsection{Protokoły}
 
 \begin{frame}{Protokoły}
-	W celu zagwarantowania bezpieczeństwa transmisji danych w sieci, szereg metod kryptograficznych wykorzystano w ustandaryzowanym pakiecie protokołów internetowych.
+	W celu zagwarantowania bezpieczeństwa transmisji danych w sieci, w ustandaryzowanym pakiecie protokołów internetowych wykorzystane szereg metod kryptograficznych.
 	\begin{center}
 		\includegraphics[height=0.4\paperwidth]{images/protocols.pdf}	
 	\end{center}
@@ -59,7 +59,16 @@
 \end{frame}
 
 \begin{frame}{IPsec}
-	
+	\begin{alertblock}{Internet Protocol Security}
+		Zestaw protokołów wykorzystujących szyfrowanie pakietów i uwierzytelnianie na poziomie warsty sieciowej. 
+	\end{alertblock}
+		\vspace{\fill}
+		Może zostać zaimplementowany w dwóch trybach:
+		
+		\begin{enumerate}
+			\item \textbf{transportowym} — szyfrowane są tylko dane;
+			\item \textbf{tunelowym} — szyfrowany jest cały pakiet.
+		\end{enumerate}
 \end{frame}
 
 \begin{frame}{SSH}
