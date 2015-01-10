@@ -95,12 +95,30 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{SSL}
-	
+\begin{frame}{TLS}
+	\begin{alertblock}{Transport Layer Security}
+		Protokół zapewniający bezpieczną wymianę informacji pomiędzy aplikacjami w obrębie Internetu. W celu uwierzytelnienia stron wykorzystuje certyfikację.
+	\end{alertblock}
 \end{frame}
 
-\begin{frame}{TSL}
-	
+\begin{frame}{TLS}
+	TLS również bazuje na architekturze klient-serwer. Można wyróżnić dwie warstwy komunikacji:
+	\vspace{\fill}
+	\begin{enumerate}
+		\item \textbf{„uścisk dłoni”} — w tej fazie dochodzi do uwierzytelnienia stron oraz negocjacji formatowania i porządku wymiany wiadomości;
+		\vspace{\fill}
+		\item \textbf{wymiana danych} — wiadomości przechodzą proces kapsułkowania, tworząc zaszyfrowane rekordy, których spójność jest weryfikowana.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{SSL vs TLS}
+	Protokół SSL jest obecnie uznawany jako przestarzały poprzednik TLS. Do SSL dodano następujące usprawnienia:
+	\begin{itemize}
+		\item bezpieczniejsze funkcje haszujące;
+		\item standaryzacja w RFC 2246;
+		\item rozluźniono restrykcje przy pozyskiwaniu certyfikatów z urzędów uwierzytelniających;
+		\item dodatkowe wiadomości z ostrzeżeniami.
+	\end{itemize} 
 \end{frame}
 
 \begin{frame}{HTTPS, SFTP, FTPS}
