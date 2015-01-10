@@ -76,5 +76,11 @@
 
 \begin{frame}{HTTPS, SFTP, FTPS}
 	
+	Kod realizujący te protokoły po obu stronach (klient i serwer) jest dokładnie taki sam, jak dla ich nieszyfrowanych wersji.
+	
+	Różnica leży w tworzeniu połączenia. Zamiast tworzyć socket systemu operacyjnego, tworzymy socket SSL/TLS, który obsługuje się później dokładnie tak samo jak systemowy.
+	
+	Socket SSL/TLS tworzymy powołując się na funkcjonalności biblioteki OpenSSL lub jej zamiennika, podając przy tym certyfikaty, klucze prywatne itd.
+	
 \end{frame}
 
