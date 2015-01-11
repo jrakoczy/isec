@@ -14,17 +14,19 @@
 
 \begin{frame}{2FA}
 	
-	Tokeny software'owe, np. Google Authenticator. :heart: % warum ich nicht `♥' kann?!?1
+	\begin{alertblock}{2-Factor Authentication}
+		Użytkownik oprócz loginu i hasła musi podać jednorazowy kod z fizycznej karty kodów, otrzymany SMS-em albo odczytany z tokena.
+	\end{alertblock}
 	
-	Tokeny sprzętowe.
+	\begin{itemize}
+		\item Przy przechwyceniu loginu i hasła, atakujący nie ma i tak dostępu do źródła kodów.
+		
+		\item Tokeny — zarówno software'owe (np. aplikacja mobilna \href{https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2}{Google Authenticator}), jak i sprzętowe — mają w pamięci pewien klucz. Na podstawie klucza i aktualnego czasu obliczają tę samą liczbę, co serwer.
 	
-	Token ma pewien klucz w pamięci + zna aktualny czas. Jest wtedy w stanie obliczyć tę samą liczbę co serwer. Jeśli się zgadza, to puszcza dalej.
-	
-	Problem: czasem trzeba synchronizować czas serwera i tokena, jeśli się rozjadą, bo zegar tokena wyprodukowali Chińczycy na eksport.
-	
-	Albo SMS-ki, ale to głupota.
-	
-	Por. \url{http://zaufanatrzeciastrona.pl/post/jak-absolutnie-nie-uzywac-tokenow/}
+		\item Problem: synchronizacja czasu serwera i tokena (rzadko).
+		
+		\item Problem: \href{http://zaufanatrzeciastrona.pl/post/jak-absolutnie-nie-uzywac-tokenow/}{czynnik ludzki}.
+	\end{itemize}
 	
 \end{frame}
 
