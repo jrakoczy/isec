@@ -41,9 +41,15 @@
 
 \begin{frame}{ACL}
 	
-	To co w Mumble Server. Nawet niezłe.
+	\begin{alertblock}{Access Control List}
+		Lista uprawnień dołączona do danego zasobu. Każdy element składa się z przypisania konkretnych uprawnień do uwierzytelnionej grupy/użytkownika.
+	\end{alertblock}
 	
-	Leci od góry do dołu, i jak coś zmatchuje, to wykonuje.
+	Dwa użycia w kontekście bezpieczeństwa komunikacji:
+	\begin{enumerate}
+		\item dostęp do konkretnych zasobów serwera po uwierzytelnieniu (por. \href{http://wiki.mumble.info/wiki/ACL_and_Groups/English}{Mumble Server}),
+		\item w routerach i in. urządzeniach sieciowych do definicji widoczności usług (por. \href{http://www.cisco.com/c/en/us/td/docs/ios/12_2/security/configuration/guide/fsecur_c/scfacls.html}{Cisco}).
+	\end{enumerate}
 	
 \end{frame}
 
