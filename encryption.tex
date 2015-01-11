@@ -2,7 +2,7 @@
 
 \begin{frame}
 	\begin{alertblock}{Szyfrowanie}
-		Jest to proces przetwarzania przesyłanej informacji w taki sposób, by była czytelna tylko dla uprawnionych stron komunikacji. Wiadomość zostaje przesłana w zakodowanej postaci, co znacznie utrudnia lub uniemożliwia zrozumienie jej treści w przypadku przechwycenia.
+			Jest to proces przetwarzania przesyłanej informacji w taki sposób, by była czytelna tylko dla uprawnionych stron komunikacji. Wiadomość zostaje przesłana w zakodowanej postaci, co znacznie utrudnia lub uniemożliwia zrozumienie jej treści w przypadku przechwycenia.
 	\end{alertblock}
 \end{frame}
 
@@ -27,7 +27,7 @@
 		\includegraphics[height=0.25\paperwidth]{images/pub-key-sign.png}
 \end{frame}
 
-\begin{frame}{Algorytmy szyfrujące asymetryczne}
+\begin{frame}{Algorytmy szyfrujące asymetrycznie}
 	\begin{itemize}
 		\item Digital Signature Algorithm (DSA).
 		\item ElGamal.
@@ -37,7 +37,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Algorytmy szyfrujące symetryczne}
+\begin{frame}{Algorytmy szyfrujące symetrycznie}
 	\begin{itemize}
 		\item Advanced Encryption Standard (AES).
 		\item Data Encryption Standard (DES).
@@ -45,6 +45,15 @@
 		\item IDEA.
 		\item RC4.
 		\item Tiny Encryption Algorithm.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Symetryczne --- po co?}
+	\begin{itemize}
+		\item Algorytmy symetryczne są dużo tańsze i prostsze obliczeniowo (mniejsze obciążenie CPU, tańsze koszty utrzymania serwerów, znacząco szybsze prędkości zapisu na szyfrowane nośniki itd.).
+		\item AES ma nawet swoje natywne instrukcje w niektórych CPU.
+		\item Pozostaje problem bezpiecznej wymiany klucza prywatnego.
+		\item Rozwiązaniem jest wymiana klucza w \emph{asymetrycznie} szyfrowanym kanale i dopiero późniejsze przejście na komunikację \emph{symetryczną}.
 	\end{itemize}
 \end{frame}
 
@@ -73,12 +82,12 @@
 
 \begin{frame}{SSH}
 	\begin{alertblock}{Secure Shell}
-		Protokół wykorzystujący kryptografię asymetryczną do bezpiecznego zdalnego dostęp do komputera. 
+		Protokół wykorzystujący kryptografię asymetryczną do bezpiecznego zdalnego dostępu do komputera. 
 	\end{alertblock}
 	
-	Połączenie jest realizowane w architekturze klient-serwer. Uwierzytelnienie może zostać przeprowadzone w dwóch wariantach:
+	Połączenie jest realizowane w architekturze klient--serwer. Uwierzytelnienie może zostać przeprowadzone w dwóch wariantach:
 	\begin{enumerate}
-		\item z automatycznyn generowaniem par kluczy oraz wykorzystaniem hasła;
+		\item z automatycznym generowaniem par kluczy oraz wykorzystaniem hasła (tzw. wariant BZP --- bardzo złego pomysłu);
 		\item z ręcznym generowaniem kluczy.
 	\end{enumerate}
 	
@@ -87,9 +96,8 @@
 \begin{frame}{SSH}
 	Protokół SSH charakteryzuje się szerokim spektrum zastosowań:
 	\begin{itemize}
-		\item zdalne wykonywanie komend;
-		\item tunelowanie;
-		\item przekierowywanie portów TCP;
+		\item zdalne wykonywanie komend (które mogą być organiczone na serwerze, a nawet dowolnie przez niego interpretowane, por. \href{https://medium.com/@shazow/ssh-how-does-it-even-9e43586e4ffc}{chat over SSH}, \href{http://gitolite.com/}{Gitolite} itd.);
+		\item tunelowanie/przekierowywanie portów TCP;
 		\item przekazywanie sesji graficznej X11 (system okien);
 		\item przesył plików.
 	\end{itemize}
@@ -105,16 +113,17 @@
 	TLS również bazuje na architekturze klient-serwer. Można wyróżnić dwie warstwy komunikacji:
 	\vspace{\fill}
 	\begin{enumerate}
-		\item \textbf{„uścisk dłoni”} — w tej fazie dochodzi do uwierzytelnienia stron oraz negocjacji formatowania i porządku wymiany wiadomości;
+		\item \textbf{„uścisk dłoni”} — komunikacja szyfrowana asymetrycznie — w tej fazie dochodzi do uwierzytelnienia stron oraz negocjacji formatowania i porządku wymiany wiadomości oraz klucza prywatnego używanego w 2 etapie;
 		\vspace{\fill}
-		\item \textbf{wymiana danych} — wiadomości przechodzą proces kapsułkowania, tworząc zaszyfrowane rekordy, których spójność jest weryfikowana.
+		\item \textbf{wymiana danych} — szyfrowanie symetryczne — wiadomości przechodzą proces kapsułkowania, tworząc zaszyfrowane rekordy, których spójność jest weryfikowana.
 	\end{enumerate}
 \end{frame}
 
 \begin{frame}{SSL vs TLS}
-	Protokół SSL jest obecnie uznawany jako przestarzały poprzednik TLS. Do SSL dodano następujące usprawnienia:
+	Protokół SSL jest obecnie uznawany jako przestarzały poprzednik TLS. Względem SSL dodano następujące usprawnienia:
 	\begin{itemize}
 		\item bezpieczniejsze funkcje haszujące;
+		\item wyrugowano błędy logiczne;
 		\item standaryzacja w RFC 2246;
 		\item rozluźniono restrykcje przy pozyskiwaniu certyfikatów z urzędów uwierzytelniających;
 		\item dodatkowe wiadomości z ostrzeżeniami.
