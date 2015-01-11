@@ -53,10 +53,23 @@
 	
 \end{frame}
 
-\begin{frame}{Tokeny}
+\begin{frame}{OAuth2, Tokeny}
 	
-	Tu będzie o OAuth2?
+	\begin{alertblock}{OAuth 2.0}
+		Otwartym standardem autoryzującym umożliwiający użytkownikowi udzielenie zewnętrznej aplikacji (Z) uprawnień dostępu do części zasobów innej aplikacji (A), w której ma on konto.
+	\end{alertblock}
 	
+	Przebieg:
+	\begin{enumerate}
+		\item (Z) wysyła (A) prośbę o token (z listą żądanych uprawnień),
+		\item (A) pokazuje użytkownikowi ekran akceptacji,
+		\item użytkownik akceptuje,
+		\item (Z) dostaje \emph{tylko} token,
+		\item (Z) używa tokenu zwracając się do (A).
+	\end{enumerate}
+	
+	Token pozwala na dostęp tylko do wybranych zasobów i najczęściej wygasa po ustalonym czasie.
+
 \end{frame}
 
 \begin{frame}{Niezaprzeczalność}
