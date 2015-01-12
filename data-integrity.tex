@@ -50,26 +50,27 @@
 		\item Wynaleziona w 1991 przez Rona Rivesta z MIT.
 		\item Popularna kryptograficzna funkcja haszująca.
 		\item Zwraca 128-bitową liczbę.
-		\item W 2004 znaleziono sposób na generowanie kolizji, dlatego odradza się używanie jej.
+		\item W 2004 znaleziono sposób na generowanie kolizji...
+		\item ... dlatego odradza się używanie jej.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{SHA-1}
-	
-	Niedługo umiera, słyszeliśmy pierwsze słuchy.
-	
-	Niestety Git korzysta.
-	
+	\begin{itemize}
+		\item Opublikowana w 1995 przez NSA.
+		\item Popularna kryptograficzna funkcja haszująca.
+		\item Zwraca 160-bitową liczbę.
+		\item W 2005--2008 opublikowano m.in. atak, który wymaga $2^{63}$ operacji funkcji kompresującej, żeby znaleźć kolizję (w porównaniu do $2^{80}$ przy brute-force)...
+		\item ... dlatego SHA-1 nie powinna być używana w nowych aplikacjach.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{SHA-2}
-	
-	6 funkcji zaprojektowanych przez NSA.
-	
-	SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256
-	
-	Mają się dobrze --- póki co.
-	
+	\begin{itemize}
+		\item 4 funkcje zaprojektowane w 2001 przez NSA.
+		\item Bitowości: SHA-224, SHA-256 oraz SHA-384, SHA-512.
+		\item Do tej pory nie znaleziono kolizji.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Podpis cyfrowy}
