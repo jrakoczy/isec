@@ -1,15 +1,24 @@
 \section{Certyfikacja}
 
 \begin{frame}{Certyfikacja}
-	\begin{alertblock}{Certyfikacja}
-		14:23:12 <@kuba> Certyfikacja — co to i kto udziela certyfikatów.
+	\begin{alertblock}{Certyfikat klucza publicznego}
+		Elektroniczny dokument używany w kryptografii asymetrycznej, będący dowodem własności danego klucza publicznego przez dany rzeczywisty podmiot.
 	\end{alertblock}
+	\begin{itemize}
+		\item Wydawany przez urząd certyfikacji (CA — Certification Authority) po weryfikacji podmiotu.
+		\item Użytkownicy korzystający z klucza publicznego opatrzonego certyfikatem mają dużą pewność, że podmiot po drugiej stronie jest rzeczywiście tym, za który się podaje.
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Zawartość}
-	\begin{alertblock}{Zawartość}
-		14:23:24 <@kuba> Zawartość — z czego składa się certyfikat.
-	\end{alertblock}
+\begin{frame}{Zawartość certyfikatu}
+	Certyfikat zawiera m.in.:
+	\begin{itemize}
+		\item \emph{podpis urzędu certyfikacji},
+		\item informacje o podmiocie (np. domena, dla której certyfikat obowiązuje),
+		\item przedział czasu ważności,
+		\item numer seryjny, użyte algorytmy kryptograficzne, zakres użycia certyfikatu,
+		\item certyfikowany klucz publiczny.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Klasyfikacja}
